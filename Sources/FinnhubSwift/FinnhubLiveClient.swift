@@ -14,7 +14,7 @@ public enum FinnhubLiveSuccess {
 }
 
 public class FinnhubLiveClient {
-    static let shared: FinnhubLiveClient = {
+    public static let shared: FinnhubLiveClient = {
         let instance = FinnhubLiveClient()
         return instance
     }()
@@ -39,18 +39,18 @@ public class FinnhubLiveClient {
         }
     }
 
-    func subscribe(symbol: String) {
+    public func subscribe(symbol: String) {
         let messageString = "{\"type\":\"subscribe\",\"symbol\":\"\(symbol)\"}"
         socketService.sendMessage(string: messageString)
     }
 
-    func subscribe(symbols: [String]) {
+    public func subscribe(symbols: [String]) {
         for symbol in symbols {
             subscribe(symbol: symbol)
         }
     }
 
-    func receiveMessage(completion: @escaping (Result<FinnhubLiveSuccess, FinnhubLiveError>) -> Void) {
+    public func receiveMessage(completion: @escaping (Result<FinnhubLiveSuccess, FinnhubLiveError>) -> Void) {
         socketService.receiveMessage { [unowned self] result in
             switch result {
             case .connected:
@@ -74,7 +74,7 @@ public class FinnhubLiveClient {
         }
     }
 
-    func closeConnection() {
+    public func closeConnection() {
         socketService.closeConnection()
     }
 }
