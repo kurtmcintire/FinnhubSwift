@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     }
 
     func loadData() {
-        /*
          FinnhubClient.symbols(exchange: .unitedStates) { result in
              switch result {
              case let .success(data):
@@ -91,7 +90,6 @@ class ViewController: UIViewController {
                  print(error)
              }
          }
-         */
 
         FinnhubLiveClient.shared.subscribe(symbol: "SQ")
         FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "TSLA", "AMZN", "SQ"])
