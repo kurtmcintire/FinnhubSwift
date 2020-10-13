@@ -75,6 +75,5 @@ fastlane/test_output
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
-Packages
 xcuserdata
 .swiftpm
