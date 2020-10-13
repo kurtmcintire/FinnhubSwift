@@ -32,7 +32,7 @@ public struct FinnhubClient {
 
     // MARK: Symbols
 
-    static func symbols(exchange: Exchange, completion: @escaping (Result<[CompanySymbol]?, FinnhubWebError>) -> Void) {
+    public static func symbols(exchange: Exchange, completion: @escaping (Result<[CompanySymbol]?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/symbol?exchange=\(exchange.rawValue)")
         let resource = Resource<[CompanySymbol]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[CompanySymbol]?, Error>) in
@@ -42,13 +42,13 @@ public struct FinnhubClient {
 
     // MARK: Market News
 
-    static func news(category: NewsCategory, completion: @escaping (Result<[MarketNews]?, FinnhubWebError>) -> Void) {
+    public static func news(category: NewsCategory, completion: @escaping (Result<[MarketNews]?, FinnhubWebError>) -> Void) {
         newsWithMinId(category: category, minId: 0, completion: { result in
             completion(result)
         })
     }
 
-    static func newsWithMinId(category: NewsCategory, minId: Int = 0, completion: @escaping (Result<[MarketNews]?, FinnhubWebError>) -> Void) {
+    public static func newsWithMinId(category: NewsCategory, minId: Int = 0, completion: @escaping (Result<[MarketNews]?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/news?category=\(category.rawValue)?minId=\(minId)")
         let resource = Resource<[MarketNews]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[MarketNews]?, Error>) in
@@ -58,7 +58,7 @@ public struct FinnhubClient {
 
     // MARK: News Sentiment
 
-    static func newsSentiment(symbol: String, completion: @escaping (Result<NewsSentiment?, FinnhubWebError>) -> Void) {
+    public static func newsSentiment(symbol: String, completion: @escaping (Result<NewsSentiment?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/news-sentiment?symbol=\(symbol)")
         let resource = Resource<NewsSentiment>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<NewsSentiment?, Error>) in
@@ -68,7 +68,7 @@ public struct FinnhubClient {
 
     // MARK: Peers
 
-    static func peers(symbol: String, completion: @escaping (Result<[String]?, FinnhubWebError>) -> Void) {
+    public static func peers(symbol: String, completion: @escaping (Result<[String]?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/peers?symbol=\(symbol)")
         let resource = Resource<[String]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[String]?, Error>) in
@@ -78,7 +78,7 @@ public struct FinnhubClient {
 
     // MARK: Recommendations
 
-    static func recommendations(symbol: String, completion: @escaping (Result<[Recommendation]?, FinnhubWebError>) -> Void) {
+    public static func recommendations(symbol: String, completion: @escaping (Result<[Recommendation]?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/recommendation?symbol=\(symbol)")
         let resource = Resource<[Recommendation]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[Recommendation]?, Error>) in
@@ -88,7 +88,7 @@ public struct FinnhubClient {
 
     // MARK: Price Target
 
-    static func priceTarget(symbol: String, completion: @escaping (Result<PriceTarget?, FinnhubWebError>) -> Void) {
+    public static func priceTarget(symbol: String, completion: @escaping (Result<PriceTarget?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/price-target?symbol=\(symbol)")
         let resource = Resource<PriceTarget>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<PriceTarget?, Error>) in
@@ -98,7 +98,7 @@ public struct FinnhubClient {
 
     // MARK: Company Profile 2
 
-    static func companyProfile2(symbol: String, completion: @escaping (Result<CompanyProfile?, FinnhubWebError>) -> Void) {
+    public static func companyProfile2(symbol: String, completion: @escaping (Result<CompanyProfile?, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/profile2?symbol=\(symbol)")
         let resource = Resource<CompanyProfile>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<CompanyProfile?, Error>) in
