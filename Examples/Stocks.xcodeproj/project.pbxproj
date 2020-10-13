@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BF64A48C2536213F008CFD54 /* Finnhub-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF64A4862536213F008CFD54 /* Finnhub-Info.plist */; };
-		BF64A48D2536213F008CFD54 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BF64A4872536213F008CFD54 /* README.md */; };
-		BF64A48E25362140008CFD54 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BF64A4882536213F008CFD54 /* Base.lproj */; };
-		BF64A48F25362140008CFD54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64A4892536213F008CFD54 /* ViewController.swift */; };
-		BF64A49025362140008CFD54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF64A48A2536213F008CFD54 /* AppDelegate.swift */; };
-		BF64A49125362140008CFD54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF64A48B2536213F008CFD54 /* Assets.xcassets */; };
+		BF22B5E72536397A00DC65A7 /* Finnhub-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF22B5E02536397A00DC65A7 /* Finnhub-Info.plist */; };
+		BF22B5E82536397A00DC65A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF22B5E12536397A00DC65A7 /* Assets.xcassets */; };
+		BF22B5E92536397A00DC65A7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BF22B5E22536397A00DC65A7 /* README.md */; };
+		BF22B5EA2536397A00DC65A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22B5E32536397A00DC65A7 /* AppDelegate.swift */; };
+		BF22B5EB2536397A00DC65A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF22B5E42536397A00DC65A7 /* ViewController.swift */; };
+		BF22B5EC2536397A00DC65A7 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = BF22B5E52536397A00DC65A7 /* Base.lproj */; };
 		BF64A495253624EF008CFD54 /* FinnhubSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF64A494253624EF008CFD54 /* FinnhubSwift */; };
 /* End PBXBuildFile section */
 
@@ -34,13 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF22B5E02536397A00DC65A7 /* Finnhub-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Finnhub-Info.plist"; path = "Stocks/Finnhub-Info.plist"; sourceTree = "<group>"; };
+		BF22B5E12536397A00DC65A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Stocks/Assets.xcassets; sourceTree = "<group>"; };
+		BF22B5E22536397A00DC65A7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Stocks/README.md; sourceTree = "<group>"; };
+		BF22B5E32536397A00DC65A7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Stocks/AppDelegate.swift; sourceTree = "<group>"; };
+		BF22B5E42536397A00DC65A7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Stocks/ViewController.swift; sourceTree = "<group>"; };
+		BF22B5E52536397A00DC65A7 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = Stocks/Base.lproj; sourceTree = "<group>"; };
+		BF22B5E62536397A00DC65A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Stocks/Info.plist; sourceTree = "<group>"; };
 		BF64A4832536213F008CFD54 /* Stocks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stocks.xcodeproj; sourceTree = "<group>"; };
-		BF64A4862536213F008CFD54 /* Finnhub-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Finnhub-Info.plist"; sourceTree = "<group>"; };
-		BF64A4872536213F008CFD54 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		BF64A4882536213F008CFD54 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
-		BF64A4892536213F008CFD54 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BF64A48A2536213F008CFD54 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BF64A48B2536213F008CFD54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFDCC5B3252F9A6800278DA7 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDCC5C9252F9A6A00278DA7 /* StocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFDCC5D4252F9A6A00278DA7 /* StocksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF22B5EF253639BB00DC65A7 /* Stocks */ = {
+			isa = PBXGroup;
+			children = (
+				BF22B5E32536397A00DC65A7 /* AppDelegate.swift */,
+				BF22B5E12536397A00DC65A7 /* Assets.xcassets */,
+				BF22B5E52536397A00DC65A7 /* Base.lproj */,
+				BF22B5E02536397A00DC65A7 /* Finnhub-Info.plist */,
+				BF22B5E62536397A00DC65A7 /* Info.plist */,
+				BF22B5E22536397A00DC65A7 /* README.md */,
+				BF22B5E42536397A00DC65A7 /* ViewController.swift */,
+			);
+			name = Stocks;
+			sourceTree = "<group>";
+		};
 		BF64A4842536213F008CFD54 /* Products */ = {
 			isa = PBXGroup;
 			name = Products;
@@ -80,13 +95,8 @@
 		BFDCC5AA252F9A6800278DA7 = {
 			isa = PBXGroup;
 			children = (
-				BF64A48A2536213F008CFD54 /* AppDelegate.swift */,
-				BF64A48B2536213F008CFD54 /* Assets.xcassets */,
-				BF64A4882536213F008CFD54 /* Base.lproj */,
-				BF64A4862536213F008CFD54 /* Finnhub-Info.plist */,
-				BF64A4872536213F008CFD54 /* README.md */,
+				BF22B5EF253639BB00DC65A7 /* Stocks */,
 				BF64A4832536213F008CFD54 /* Stocks.xcodeproj */,
-				BF64A4892536213F008CFD54 /* ViewController.swift */,
 				BFDCC5B4252F9A6800278DA7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,7 +121,6 @@
 				BFDCC5AF252F9A6800278DA7 /* Sources */,
 				BFDCC5B0252F9A6800278DA7 /* Frameworks */,
 				BFDCC5B1252F9A6800278DA7 /* Resources */,
-				BFDCC603253004C000278DA7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -218,10 +227,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF64A48D2536213F008CFD54 /* README.md in Resources */,
-				BF64A48E25362140008CFD54 /* Base.lproj in Resources */,
-				BF64A49125362140008CFD54 /* Assets.xcassets in Resources */,
-				BF64A48C2536213F008CFD54 /* Finnhub-Info.plist in Resources */,
+				BF22B5E92536397A00DC65A7 /* README.md in Resources */,
+				BF22B5E82536397A00DC65A7 /* Assets.xcassets in Resources */,
+				BF22B5EC2536397A00DC65A7 /* Base.lproj in Resources */,
+				BF22B5E72536397A00DC65A7 /* Finnhub-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,33 +250,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		BFDCC603253004C000278DA7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "CONFIG_FILE_BASE_NAME=\"Finnhub-Info\"\n\nCONFIG_FILE_NAME=${CONFIG_FILE_BASE_NAME}.plist\nSAMPLE_CONFIG_FILE_NAME=${CONFIG_FILE_BASE_NAME}-Sample.plist\n\nCONFIG_FILE_PATH=$SRCROOT/$PRODUCT_NAME/$CONFIG_FILE_NAME\nSAMPLE_CONFIG_FILE_PATH=$SRCROOT/$PRODUCT_NAME/$SAMPLE_CONFIG_FILE_NAME\n\nif [ -f \"$CONFIG_FILE_PATH\" ]; then\n  echo \"$CONFIG_FILE_PATH exists.\"\nelse\n  echo \"$CONFIG_FILE_PATH does not exist, copying sample\"\n  cp -v \"${SAMPLE_CONFIG_FILE_PATH}\" \"${CONFIG_FILE_PATH}\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		BFDCC5AF252F9A6800278DA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF64A49025362140008CFD54 /* AppDelegate.swift in Sources */,
-				BF64A48F25362140008CFD54 /* ViewController.swift in Sources */,
+				BF22B5EB2536397A00DC65A7 /* ViewController.swift in Sources */,
+				BF22B5EA2536397A00DC65A7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +414,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4K32S464V;
-				INFOPLIST_FILE = Stocks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Stocks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,7 +436,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4K32S464V;
-				INFOPLIST_FILE = Stocks/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Stocks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
