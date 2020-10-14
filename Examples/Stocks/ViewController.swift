@@ -92,7 +92,75 @@ class ViewController: UIViewController {
                  print(error)
              }
          }
+        
+        FinnhubClient.split(symbol: "AAPL", from: "2010-02-01", to: "2020-02-01") { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+        
+        FinnhubClient.country() { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+        
+        FinnhubClient.economicCalendar() { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+        
+        FinnhubClient.fdaAdvisoryCommitteeCalendar() { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+        
+        FinnhubClient.covidCasesUS() { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+        
+        FinnhubClient.aggregateIndicators(symbol: "AAPL", resolution: Resolution.day) { result in
+            switch result {
+            case let .success(data):
+                print(data)
+            case .failure(.invalidData):
+                print("Invalid data")
+            case let .failure(.networkFailure(error)):
+                print(error)
+            }
+        }
+         */
 
+         /*
          FinnhubLiveClient.shared.subscribe(symbol: "SQ")
          FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "TSLA", "AMZN", "SQ"])
          FinnhubLiveClient.shared.receiveMessage { result in
