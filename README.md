@@ -6,6 +6,7 @@ https://finnhub.io/
 
 * Support for most free Finnhub.io REST API endpoints.
 * Support for Finnhub.io's Websocket `Trades` trading data.
+* Finnhub.io responses serialized to Swift models.
 
 ## Usage
 
