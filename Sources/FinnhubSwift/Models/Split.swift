@@ -12,4 +12,13 @@ public struct Split: Codable, Equatable {
             lhs.fromFactor == rhs.fromFactor &&
             lhs.toFactor == rhs.toFactor
     }
+    
+    /*
+     [{
+         "symbol":"AAPL",
+         "date":"2014-06-09",
+         "fromFactor":1,
+         "toFactor":7
+     }]
+     */
 }
