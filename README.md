@@ -4,9 +4,10 @@ https://finnhub.io/
 
 ## Features
 
+* Get up and running quickly with Finnhub.io.
+* This package serializes all Finnhub.io JSON responses to native Swift objects.
 * Support for most free Finnhub.io REST API endpoints.
 * Support for Finnhub.io's Websocket `Trades` trading data.
-* Finnhub.io responses serialized to Swift models.
 
 ## Usage
 
