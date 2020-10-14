@@ -17,7 +17,7 @@ public struct FinnhubClient {
         return resource
     }
 
-    fileprivate static func parseResponse<T>(result: Result<T?, Error>) -> Result<T, FinnhubWebError> {
+    static func parseResponse<T>(result: Result<T?, Error>) -> Result<T, FinnhubWebError> {
         switch result {
         case let .success(data):
             if let parsed = data {
@@ -30,7 +30,7 @@ public struct FinnhubClient {
         }
     }
 
-    fileprivate static func validateDateString(date: String) {
+    static func validateDateString(date: String) {
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         if dateFormatterGet.date(from: date) == nil {
