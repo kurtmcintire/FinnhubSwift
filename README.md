@@ -90,3 +90,22 @@ Finnhub-Info.plist
 ```
 import FinnhubSwift
 ```
+
+## TODOs
+
+### Finnhub.io API endpoints
+- [ ] Technical Indicators
+- [ ] Pattern Recognition
+- [ ] Crypto Exchanges
+- [ ] Crypto Symbols
+- [ ] Crypto Candles
+- [ ] Indices Constituents
+- [ ] ETFs Industry Exposure
+- [ ] ETFs Country Exposure
+- [ ] Forex Exchanges
+- [ ] Forex Symbol
+- [ ] Forex Candles
+- [ ] Forex Rates
+
+### Tests
+- [ ] Improve test coverage
