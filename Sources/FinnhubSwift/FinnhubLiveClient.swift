@@ -23,7 +23,7 @@ public class FinnhubLiveClient {
         SocketService(url: SafeURL.path("wss://ws.finnhub.io?token=\(Constants.API_KEY)"))
     }()
 
-    fileprivate func parseLiveText(_ text: String) -> Result<FinnhubLiveSuccess, FinnhubLiveError> {
+    func parseLiveText(_ text: String) -> Result<FinnhubLiveSuccess, FinnhubLiveError> {
         guard let json = text.data(using: .utf8) else {
             return (.failure(.invalidData))
         }
