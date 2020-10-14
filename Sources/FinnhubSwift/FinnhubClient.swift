@@ -30,6 +30,14 @@ public struct FinnhubClient {
         }
     }
 
+    fileprivate static func validateDateString(date: String) {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        if dateFormatterGet.date(from: date) == nil {
+            fatalError("Invalid date string: \(date)")
+        }
+    }
+
     // MARK: Symbols
 
     public static func symbols(exchange: Exchange, completion: @escaping (Result<[CompanySymbol], FinnhubWebError>) -> Void) {
@@ -102,6 +110,69 @@ public struct FinnhubClient {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/profile2?symbol=\(symbol)")
         let resource = Resource<CompanyProfile>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<CompanyProfile?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Split
+
+    // "to" and "from" parameters should be formatted as YYYY-MM-DD
+    public static func split(symbol: String, from: String, to: String, completion: @escaping (Result<[Split], FinnhubWebError>) -> Void) {
+        validateDateString(date: from)
+        validateDateString(date: to)
+        let url = SafeURL.path("\(Constants.BASE_URL)/stock/split?symbol=\(symbol)&from=\(from)&to\(to)")
+        let resource = Resource<[Split]>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<[Split]?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Country
+
+    public static func country(symbol _: String, completion: @escaping (Result<[Country], FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/country")
+        let resource = Resource<[Country]>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<[Country]?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Economic Calendar
+
+    public static func economicCalendar(symbol _: String, completion: @escaping (Result<EconomicCalendar, FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/calendar/economic")
+        let resource = Resource<EconomicCalendar>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<EconomicCalendar?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: FDA Committee Calendar
+
+    public static func fdaAdvisoryCommitteeCalendar(symbol _: String, completion: @escaping (Result<[FDACalendarEvent], FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/fda-advisory-committee-calendar")
+        let resource = Resource<[FDACalendarEvent]>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<[FDACalendarEvent]?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Covid Case Count
+
+    public static func covidCasesUS(symbol _: String, completion: @escaping (Result<[CovidCaseCount], FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/covid/us")
+        let resource = Resource<[CovidCaseCount]>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<[CovidCaseCount]?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Aggregate Indicators
+
+    public static func aggregateIndicators(symbol: String, resolution: Resolution, completion: @escaping (Result<AggregateIndicators, FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/scan/technical-indicator?symbol=\(symbol)&resolution=\(resolution.rawValue)")
+        let resource = Resource<AggregateIndicators>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<AggregateIndicators?, Error>) in
             completion(FinnhubClient.parseResponse(result: result))
         }
     }
