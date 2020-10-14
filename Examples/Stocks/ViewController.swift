@@ -16,96 +16,87 @@ class ViewController: UIViewController {
 
     func loadData() {
         /*
-          FinnhubClient.symbols(exchange: .unitedStates) { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.symbols(exchange: .unitedStates) { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.news(category: .general) { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.news(category: .general) { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.peers(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.peers(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.newsSentiment(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.newsSentiment(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.recommendations(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.recommendations(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.priceTarget(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.priceTarget(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.companyProfile2(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data!)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.companyProfile2(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
          FinnhubLiveClient.shared.subscribe(symbol: "SQ")
          FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "TSLA", "AMZN", "SQ"])
          FinnhubLiveClient.shared.receiveMessage { result in
              switch result {
-             case let .failure(failure):
-                 switch failure {
-                 case .networkFailure:
-                     print(failure)
-                 case .invalidData:
-                     print("Invalid data")
-                 case .unknownFailure:
-                     print("Unknown failure")
-                 }
              case let .success(success):
                  switch success {
                  case let .trades(trades):
@@ -116,6 +107,15 @@ class ViewController: UIViewController {
                      print(ping)
                  case .empty:
                      print("Empty data")
+                 }
+             case let .failure(failure):
+                 switch failure {
+                 case .networkFailure:
+                     print(failure)
+                 case .invalidData:
+                     print("Invalid data")
+                 case .unknownFailure:
+                     print("Unknown failure")
                  }
              }
          }
