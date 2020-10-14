@@ -11,11 +11,11 @@ https://finnhub.io/
 ### 1. Add via Swift Package manager
 
 * In Xcode, go to File -> Swift Packages -> Add Package Dependency
-* Enter this repository's clone URL `https://github.com/kurtmcintire/FinnhubSwift.git`
+* Enter this repository's clone URL https://github.com/kurtmcintire/FinnhubSwift.git
 
 ### 2. Add your Finnhub API key
 
-* Retrieve your Finnhub API key from `https://finnhub.io/register`.
+* Retrieve your Finnhub API key from https://finnhub.io/register.
 * Create a new Property List file, named Finnhub-Info.plist, at the root of your project.
 
 Add the following information to your .plist
