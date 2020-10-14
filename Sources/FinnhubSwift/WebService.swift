@@ -59,6 +59,7 @@ extension URLSession {
             if let error = error {
                 completion(.failure(error))
             } else {
+                print(data!)
                 completion(.success(data.flatMap(resource.parse)))
             }
         }.resume()
