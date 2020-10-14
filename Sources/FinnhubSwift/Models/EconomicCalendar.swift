@@ -3,7 +3,7 @@ import Foundation
 public struct EconomicEvent: Codable, Equatable {
     var actual: Double
     var country: String
-    var estimate: Double
+    var estimate: Double?
     var event: String
     var impact: String
     var prev: Int
@@ -28,4 +28,20 @@ public struct EconomicCalendar: Codable, Equatable {
     public static func == (lhs: EconomicCalendar, rhs: EconomicCalendar) -> Bool {
         return lhs.economicCalendar == rhs.economicCalendar
     }
+    
+    /*
+     
+     {
+        "economicCalendar":[{
+            "actual":1133,
+            "country":"NZ",
+             "estimate":null,
+             "event":"New Zealand-Tourist arrivals-Estimated Migrant Arrivals",
+             "impact":"low",
+             "prev":-172,
+             "time":"2020-10-11 21:45:00",
+             "unit":"Number of"
+        }]
+     }
+    */
 }

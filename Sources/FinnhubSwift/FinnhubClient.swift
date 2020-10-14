@@ -116,12 +116,11 @@ public struct FinnhubClient {
     }
 
     // MARK: Split
-
     // "to" and "from" parameters should be formatted as YYYY-MM-DD
     public static func split(symbol: String, from: String, to: String, completion: @escaping (Result<[Split], FinnhubWebError>) -> Void) {
         validateDateString(date: from)
         validateDateString(date: to)
-        let url = SafeURL.path("\(Constants.BASE_URL)/stock/split?symbol=\(symbol)&from=\(from)&to\(to)")
+        let url = SafeURL.path("\(Constants.BASE_URL)/stock/split?symbol=\(symbol)&from=\(from)&to=\(to)")
         let resource = Resource<[Split]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[Split]?, Error>) in
             completion(FinnhubClient.parseResponse(result: result))

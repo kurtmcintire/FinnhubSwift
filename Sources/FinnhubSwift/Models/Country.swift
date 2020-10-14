@@ -11,4 +11,15 @@ public struct Country: Codable, Equatable {
     public static func == (lhs: Country, rhs: Country) -> Bool {
         return lhs.codeNo == rhs.codeNo
     }
+    
+    /*
+    [{
+         "code2":"NR",
+         "code3":"NRU",
+         "codeNo":"520",
+         "country":"Nauru",
+         "currency":"Australian Dollars",
+         "currencyCode":"AUD"
+    }]
+    */
 }
