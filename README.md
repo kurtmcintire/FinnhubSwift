@@ -69,7 +69,7 @@ FinnhubLiveClient.shared.closeConnection()
 https://github.com/kurtmcintire/FinnhubSwift.git
 ```
 
-### 2. Add your Finnhub API key
+### 2. Securely add your Finnhub API key
 
 * Retrieve your Finnhub API key from https://finnhub.io/register.
 * Create a new Property List file, named Finnhub-Info.plist, at the root of your project.
@@ -78,6 +78,11 @@ Add the following information to your .plist
 * Key: `API_KEY`
 * Type: `String`
 * Value: `<YOUR_API_KEY>`
+
+Add this path to your .gitignore
+```
+Finnhub-Info.plist
+```
 
 ### 3. Import the framework
 ```
