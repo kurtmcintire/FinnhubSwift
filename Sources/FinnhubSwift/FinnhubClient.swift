@@ -18,6 +18,7 @@ public struct FinnhubClient {
     }
 
     static func parseResponse<T>(result: Result<T?, Error>) -> Result<T, FinnhubWebError> {
+        print(result)
         switch result {
         case let .success(data):
             if let parsed = data {
