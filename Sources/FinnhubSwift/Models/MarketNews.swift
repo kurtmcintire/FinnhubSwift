@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MarketNews: Codable {
+public struct MarketNews: Codable, Equatable {
     var category: String
     var datetime: Int
     var headline: String
@@ -10,4 +10,8 @@ public struct MarketNews: Codable {
     var source: String
     var summary: String
     var url: String
+
+    public static func == (lhs: MarketNews, rhs: MarketNews) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
