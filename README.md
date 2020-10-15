@@ -4,10 +4,10 @@ https://finnhub.io/
 
 ## Features
 
-* Get up and running quickly with Finnhub.io.
-* This package serializes all Finnhub.io JSON responses to native Swift objects.
+* Get up and running quickly with Finnhub.io in your iOS or Mac app.
 * Support for most free Finnhub.io REST API endpoints.
-* Support for Finnhub.io's Websocket real-time `Trades` trading data.
+* Support for Finnhub.io's Websocket real-time trading data.
+* All Finnhub.io JSON responses are mapped to native Swift objects.
 * No dependencies.
 
 ## Usage
