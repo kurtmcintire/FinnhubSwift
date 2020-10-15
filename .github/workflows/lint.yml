@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  swiftformat:
+    name: Check swiftformat
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install SwiftFormat
+        run: brew install swiftformat
+
+      - name: Upgrade SwiftFormat
+        run: brew upgrade swiftformat
+
+      - name: Format Swift code
+        run: swiftformat --verbose .
+
+      - name: Verify formatted code is unchanged
+        run: git diff --exit-code HEAD
