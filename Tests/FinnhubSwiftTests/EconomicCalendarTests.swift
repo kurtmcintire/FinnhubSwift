@@ -68,7 +68,27 @@ final class EconomicCalendarTests: XCTestCase {
                    "prev": -0.1,
                    "time": "2020-06-02 01:30:00",
                    "unit": "%"
-                 }
+                 },
+                 {
+                    "actual":1900,
+                    "country":"CN",
+                    "estimate":1700,
+                    "event":"China (Mainland)-Money and lending-New Yuan  Loans*",
+                    "impact":"low",
+                    "prev":1280,
+                    "time":"2020-10-12 02:00:00",
+                    "unit":"CNY"
+                },
+                {
+                    "actual":null,
+                    "country":"US",
+                    "estimate":null,
+                    "event":"United States-EIA OIL STOCKS-EIA Weekly Gasoline O/P",
+                    "impact":"low",
+                    "prev":null,
+                    "time":"2020-10-21 14:30:00",
+                    "unit":"Barrel/Day"
+                },
                ]
              }
         """.utf8)

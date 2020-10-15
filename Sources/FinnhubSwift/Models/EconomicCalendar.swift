@@ -1,12 +1,12 @@
 import Foundation
 
 public struct EconomicEvent: Codable, Equatable {
-    var actual: Double
+    var actual: Double?
     var country: String
     var estimate: Double?
     var event: String
     var impact: String
-    var prev: Double
+    var prev: Double?
     var time: String
     var unit: String
 

@@ -55,7 +55,7 @@ extension Resource where A: Decodable {
 
 extension URLSession {
     func load<A>(_ resource: Resource<A>, completion: @escaping (Result<A?, Error>) -> Void) {
-        dataTask(with: resource.urlRequest) { data, response, error in
+        dataTask(with: resource.urlRequest) { data, _, error in
             if let error = error {
                 completion(.failure(error))
             } else {
