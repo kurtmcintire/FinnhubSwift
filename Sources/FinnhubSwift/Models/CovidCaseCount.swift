@@ -19,4 +19,21 @@ public struct CovidCaseCount: Codable, Equatable {
             lhs.death == rhs.death &&
             lhs.updated == rhs.updated
     }
+    
+    /*
+     
+     [{
+        "state":"New York",
+        "case":482327,
+        "death":33306,
+        "updated":"2020-10-15 00:00:29"
+     },
+     {
+        "state":"New Jersey",
+        "case":215112,
+        "death":16302,
+        "updated":"2020-10-15 00:00:29"
+     }]
+     
+    */
 }

@@ -12,7 +12,7 @@ public struct Split: Codable, Equatable {
             lhs.fromFactor == rhs.fromFactor &&
             lhs.toFactor == rhs.toFactor
     }
-    
+
     /*
      [{
          "symbol":"AAPL",

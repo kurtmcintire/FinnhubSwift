@@ -8,6 +8,25 @@ public struct AggregateIndicators: Codable, Equatable {
         return lhs.technicalAnalysis == rhs.technicalAnalysis &&
             lhs.trend == rhs.trend
     }
+
+    /*
+
+     {
+         "technicalAnalysis":{
+             "count":{
+                 "buy":7,
+                 "neutral":8,
+                 "sell":2
+             },
+             "signal":"buy"
+         },
+         "trend":{
+             "adx":20.172131665096146,
+             "trending":false
+         }
+     }
+
+     */
 }
 
 public struct TechnicalAnalysis: Codable, Equatable {

@@ -18,7 +18,6 @@ public struct FinnhubClient {
     }
 
     static func parseResponse<T>(result: Result<T?, Error>) -> Result<T, FinnhubWebError> {
-        print(result)
         switch result {
         case let .success(data):
             if let parsed = data {
@@ -116,6 +115,7 @@ public struct FinnhubClient {
     }
 
     // MARK: Split
+
     // "to" and "from" parameters should be formatted as YYYY-MM-DD
     public static func split(symbol: String, from: String, to: String, completion: @escaping (Result<[Split], FinnhubWebError>) -> Void) {
         validateDateString(date: from)
