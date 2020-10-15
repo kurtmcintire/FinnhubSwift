@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        with:
-          submodules: recursive
 
       - name: Install SwiftFormat
         run: brew install swiftformat
