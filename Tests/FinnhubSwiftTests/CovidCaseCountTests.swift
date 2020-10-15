@@ -50,6 +50,12 @@ final class CovidCaseCountsTests: XCTestCase {
                  "death": 83,
                  "updated": "2020-03-20 21:38:50"
                },
+               {
+                 "state":"Veteran Affair",
+                 "case":65726,
+                 "death":3616,
+                 "updated":"2020-10-15 00:00:29"
+               }
              ]
         """.utf8)
 
