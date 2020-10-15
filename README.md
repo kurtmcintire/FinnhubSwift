@@ -12,15 +12,15 @@ https://finnhub.io/
 
 ## Usage
 
-* FinnhubClient, used for REST GET requests.
-* FinnhubLiveClient, used for websocket connections.
+* `FinnhubClient`, used for REST GET requests.
+* `FinnhubLiveClient`, used for websocket connections.
 
 ### Fetch data from Finnhub.io
 ```
 FinnhubClient.symbols(exchange: .unitedStates) { result in
     switch result {
     case let .success(data):
-        print(data)
+        print(data) // Prints a CompanySymbol object
     case .failure(.invalidData):
         print("Invalid data")
     case let .failure(.networkFailure(error)):
@@ -29,19 +29,19 @@ FinnhubClient.symbols(exchange: .unitedStates) { result in
 }
 ```
 
-### Stream real-time trades for US stocks, forex and crypto:
+### Stream real-time trades for US stocks, forex and crypto
 ```
-FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "TSLA", "AMZN", "SQ"])
+FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "AMZN", "BINANCE:BTCUSDT", "IC MARKETS:1"])
 FinnhubLiveClient.shared.receiveMessage { result in
     switch result {
     case let .success(success):
     switch success {
       case let .trades(trades):
-          print(trades)
+          print(trades) // Prints a LiveTrades object
       case let .news(news):
-          print(news)
+          print(news) // Prints a LiveNews object
       case let .ping(ping):
-          print(ping)
+          print(ping) // Prints a Ping object
       case .empty:
           print("Empty data")
       }
@@ -109,4 +109,4 @@ import FinnhubSwift
 - [ ] Forex Rates
 
 ### Tests
-- [ ] Improve test coverage
+- [ ] 100% coverage for model serialization
