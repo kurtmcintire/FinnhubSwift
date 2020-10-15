@@ -160,7 +160,7 @@ public struct FinnhubClient {
     // MARK: Covid Case Count
 
     public static func covidCasesUS(completion: @escaping (Result<[CovidCaseCount], FinnhubWebError>) -> Void) {
-        let url = SafeURL.path("\(Constants.BASE_URL)/covid/us")
+        let url = SafeURL.path("\(Constants.BASE_URL)/covid19/us")
         let resource = Resource<[CovidCaseCount]>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<[CovidCaseCount]?, Error>) in
             completion(FinnhubClient.parseResponse(result: result))
