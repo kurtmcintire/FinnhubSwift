@@ -1,10 +1,10 @@
 import Foundation
 
 public struct FDACalendarEvent: Codable, Equatable {
-    var fromDate: String
-    var toDate: String
-    var eventDescription: String
-    var url: String
+    public var fromDate: String
+    public var toDate: String
+    public var eventDescription: String
+    public var url: String
 
     public static func == (lhs: FDACalendarEvent, rhs: FDACalendarEvent) -> Bool {
         return lhs.fromDate == rhs.fromDate &&

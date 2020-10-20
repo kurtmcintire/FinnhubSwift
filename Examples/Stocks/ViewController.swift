@@ -16,82 +16,82 @@ class ViewController: UIViewController {
 
     func loadData() {
         /*
-          FinnhubClient.symbols(exchange: .unitedStates) { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.symbols(exchange: .unitedStates) { result in
+             switch result {
+             case let .success(data):
+                 print(data))
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.news(category: .general) { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.news(category: .general) { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.peers(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.peers(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.newsSentiment(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.newsSentiment(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.recommendations(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.recommendations(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.priceTarget(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.priceTarget(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
-          FinnhubClient.companyProfile2(symbol: "AAPL") { result in
-              switch result {
-              case let .success(data):
-                  print(data)
-              case .failure(.invalidData):
-                  print("Invalid data")
-              case let .failure(.networkFailure(error)):
-                  print(error)
-              }
-          }
+         FinnhubClient.companyProfile2(symbol: "AAPL") { result in
+             switch result {
+             case let .success(data):
+                 print(data)
+             case .failure(.invalidData):
+                 print("Invalid data")
+             case let .failure(.networkFailure(error)):
+                 print(error)
+             }
+         }
 
          FinnhubClient.split(symbol: "AAPL", from: "2010-02-01", to: "2020-02-01") { result in
              switch result {
@@ -104,7 +104,7 @@ class ViewController: UIViewController {
              }
          }
 
-         FinnhubClient.country() { result in
+         FinnhubClient.country { result in
              switch result {
              case let .success(data):
                  print(data)
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
              }
          }
 
-         FinnhubClient.economicCalendar() { result in
+         FinnhubClient.economicCalendar { result in
              switch result {
              case let .success(data):
                  print(data)
@@ -126,7 +126,7 @@ class ViewController: UIViewController {
              }
          }
 
-         FinnhubClient.fdaAdvisoryCommitteeCalendar() { result in
+         FinnhubClient.fdaAdvisoryCommitteeCalendar { result in
              switch result {
              case let .success(data):
                  print(data)
@@ -137,7 +137,7 @@ class ViewController: UIViewController {
              }
          }
 
-         FinnhubClient.covidCasesUS() { result in
+         FinnhubClient.covidCasesUS { result in
              switch result {
              case let .success(data):
                  print(data)
@@ -158,9 +158,7 @@ class ViewController: UIViewController {
                  print(error)
              }
          }
-          */
 
-        /*
          FinnhubLiveClient.shared.subscribe(symbol: "SQ")
          FinnhubLiveClient.shared.subscribe(symbols: ["AAPL", "TSLA", "AMZN", "SQ"])
          FinnhubLiveClient.shared.receiveMessage { result in

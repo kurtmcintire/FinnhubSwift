@@ -1,14 +1,14 @@
 import Foundation
 
 public struct EconomicEvent: Codable, Equatable {
-    var actual: Double?
-    var country: String
-    var estimate: Double?
-    var event: String
-    var impact: String
-    var prev: Double?
-    var time: String
-    var unit: String
+    public var actual: Double?
+    public var country: String
+    public var estimate: Double?
+    public var event: String
+    public var impact: String
+    public var prev: Double?
+    public var time: String
+    public var unit: String
 
     public static func == (lhs: EconomicEvent, rhs: EconomicEvent) -> Bool {
         return lhs.actual == rhs.actual &&

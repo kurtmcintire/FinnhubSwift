@@ -11,7 +11,7 @@ public enum LiveResponseType: String {
 }
 
 public struct LiveTrades: Codable, LiveResponse, Equatable {
-    var data: [Trade]
+    public var data: [Trade]
     public var type: String
 
     public static func == (lhs: LiveTrades, rhs: LiveTrades) -> Bool {
@@ -21,7 +21,7 @@ public struct LiveTrades: Codable, LiveResponse, Equatable {
 }
 
 public struct LiveNews: Codable, LiveResponse, Equatable {
-    var data: [MarketNews]
+    public var data: [MarketNews]
     public var type: String
 
     public static func == (lhs: LiveNews, rhs: LiveNews) -> Bool {
