@@ -5,7 +5,7 @@ public enum FinnhubWebError: Error {
     case invalidData
 }
 
-public struct FinnhubClient {
+public enum FinnhubClient {
     // MARK: Fileprivate, Static
 
     fileprivate static func headers() -> (String, String) {

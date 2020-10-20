@@ -1,8 +1,8 @@
 import Foundation
 
 public struct AggregateIndicators: Codable, Equatable {
-    var technicalAnalysis: TechnicalAnalysis
-    var trend: Trend
+    public var technicalAnalysis: TechnicalAnalysis
+    public var trend: Trend
 
     public static func == (lhs: AggregateIndicators, rhs: AggregateIndicators) -> Bool {
         return lhs.technicalAnalysis == rhs.technicalAnalysis &&
@@ -30,8 +30,8 @@ public struct AggregateIndicators: Codable, Equatable {
 }
 
 public struct TechnicalAnalysis: Codable, Equatable {
-    var count: TechnicalAnalysisCount
-    var signal: String
+    public var count: TechnicalAnalysisCount
+    public var signal: String
 
     public static func == (lhs: TechnicalAnalysis, rhs: TechnicalAnalysis) -> Bool {
         return lhs.count == rhs.count &&
@@ -40,9 +40,9 @@ public struct TechnicalAnalysis: Codable, Equatable {
 }
 
 public struct TechnicalAnalysisCount: Codable, Equatable {
-    var buy: Int
-    var neutral: Int
-    var sell: Int
+    public var buy: Int
+    public var neutral: Int
+    public var sell: Int
 
     public static func == (lhs: TechnicalAnalysisCount, rhs: TechnicalAnalysisCount) -> Bool {
         return lhs.buy == rhs.buy &&
@@ -52,8 +52,8 @@ public struct TechnicalAnalysisCount: Codable, Equatable {
 }
 
 public struct Trend: Codable, Equatable {
-    var adx: Double
-    var trending: Bool
+    public var adx: Double
+    public var trending: Bool
 
     public static func == (lhs: Trend, rhs: Trend) -> Bool {
         return lhs.adx == rhs.adx &&
