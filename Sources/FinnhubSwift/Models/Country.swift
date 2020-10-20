@@ -1,12 +1,12 @@
 import Foundation
 
 public struct Country: Codable, Equatable {
-    var codeTwo: String
-    var codeThree: String
-    var codeNo: String
-    var country: String
-    var currency: String
-    var currencyCode: String
+    public var codeTwo: String
+    public var codeThree: String
+    public var codeNo: String
+    public var country: String
+    public var currency: String
+    public var currencyCode: String
 
     enum CodingKeys: String, CodingKey {
         case codeTwo = "code2"

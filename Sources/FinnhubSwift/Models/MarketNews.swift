@@ -1,15 +1,15 @@
 import Foundation
 
 public struct MarketNews: Codable, Equatable {
-    var category: String
-    var datetime: Int
-    var headline: String
-    var id: Int
-    var image: String
-    var related: String
-    var source: String
-    var summary: String
-    var url: String
+    public var category: String
+    public var datetime: Int
+    public var headline: String
+    public var id: Int
+    public var image: String
+    public var related: String
+    public var source: String
+    public var summary: String
+    public var url: String
 
     public static func == (lhs: MarketNews, rhs: MarketNews) -> Bool {
         return lhs.id == rhs.id

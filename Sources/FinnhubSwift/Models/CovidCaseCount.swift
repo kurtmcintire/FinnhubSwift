@@ -1,10 +1,10 @@
 import Foundation
 
 public struct CovidCaseCount: Codable, Equatable {
-    var usState: String
-    var caseCount: Int
-    var death: Int
-    var updated: String
+    public var usState: String
+    public var caseCount: Int
+    public var death: Int
+    public var updated: String
 
     enum CodingKeys: String, CodingKey {
         case usState = "state"

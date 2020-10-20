@@ -1,16 +1,16 @@
 import Foundation
 
 public struct CompanyProfile: Codable {
-    var country: String
-    var currency: String
-    var exchange: String
-    var ipo: String
-    var marketCapitalization: Double
-    var name: String
-    var phone: String
-    var shareOutstanding: Double
-    var ticker: String
-    var weburl: String
-    var logo: String
-    var finnhubIndustry: String
+    public var country: String
+    public var currency: String
+    public var exchange: String
+    public var ipo: String
+    public var marketCapitalization: Double
+    public var name: String
+    public var phone: String
+    public var shareOutstanding: Double
+    public var ticker: String
+    public var weburl: String
+    public var logo: String
+    public var finnhubIndustry: String
 }
