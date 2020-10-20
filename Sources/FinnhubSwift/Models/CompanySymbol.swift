@@ -1,11 +1,11 @@
 import Foundation
 
 public struct CompanySymbol: Codable, Equatable {
-    var currency: String
-    var description: String
-    var displaySymbol: String
-    var symbol: String
-    var type: String
+    public var currency: String
+    public var description: String
+    public var displaySymbol: String
+    public var symbol: String
+    public var type: String
 
     public static func == (lhs: CompanySymbol, rhs: CompanySymbol) -> Bool {
         return lhs.currency == rhs.currency &&
