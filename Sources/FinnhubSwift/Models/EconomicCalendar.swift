@@ -23,7 +23,7 @@ public struct EconomicEvent: Codable, Equatable {
 }
 
 public struct EconomicCalendar: Codable, Equatable {
-    var economicCalendar: [EconomicEvent]
+    public var economicCalendar: [EconomicEvent]
 
     public static func == (lhs: EconomicCalendar, rhs: EconomicCalendar) -> Bool {
         return lhs.economicCalendar == rhs.economicCalendar
