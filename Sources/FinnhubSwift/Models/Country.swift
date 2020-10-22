@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Country: Codable, Equatable {
+public struct Country: Mappable {
     public var codeTwo: String
     public var codeThree: String
     public var codeNo: String
@@ -15,10 +15,6 @@ public struct Country: Codable, Equatable {
         case country
         case currency
         case currencyCode
-    }
-
-    public static func == (lhs: Country, rhs: Country) -> Bool {
-        return lhs.codeNo == rhs.codeNo
     }
 
     /*

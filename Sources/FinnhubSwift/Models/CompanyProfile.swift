@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CompanyProfile: Codable {
+public struct CompanyProfile: Mappable {
     public var country: String
     public var currency: String
     public var exchange: String

@@ -80,4 +80,19 @@ final class CovidCaseCountsTests: XCTestCase {
             XCTAssertNil(country)
         }
     }
+
+    func testThatEquatable() {
+        let fixture1 = CovidCaseCount(usState: "New York", caseCount: 8403, death: 46, updated: "2020-03-20")
+        let fixture2 = CovidCaseCount(usState: "New York", caseCount: 8403, death: 46, updated: "2020-03-20")
+        XCTAssertEqual(fixture1, fixture2)
+    }
+
+    func testThatHashable() {
+        let fixture1 = CovidCaseCount(usState: "New York", caseCount: 8403, death: 46, updated: "2020-03-20")
+        let fixture2 = CovidCaseCount(usState: "Washington", caseCount: 8403, death: 46, updated: "2020-03-20")
+        let fixtures: Set<CovidCaseCount> = [fixture1, fixture2]
+
+        XCTAssertTrue(fixtures.contains(fixture1))
+        XCTAssertTrue(fixtures.contains(fixture2))
+    }
 }

@@ -1,17 +1,10 @@
 import Foundation
 
-public struct Split: Codable, Equatable {
+public struct Split: Mappable {
     public var symbol: String
     public var date: String
     public var fromFactor: Int
     public var toFactor: Int
-
-    public static func == (lhs: Split, rhs: Split) -> Bool {
-        return lhs.symbol == rhs.symbol &&
-            lhs.date == rhs.date &&
-            lhs.fromFactor == rhs.fromFactor &&
-            lhs.toFactor == rhs.toFactor
-    }
 
     /*
      [{

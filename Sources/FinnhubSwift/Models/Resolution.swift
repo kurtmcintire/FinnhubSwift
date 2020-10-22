@@ -1,6 +1,6 @@
 import Foundation
 
-public enum Resolution: String {
+public enum Resolution: String, Equatable, Hashable {
     case month = "M"
     case week = "W"
     case day = "D"
