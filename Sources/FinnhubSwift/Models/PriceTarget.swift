@@ -1,6 +1,6 @@
 import Foundation
 
-public struct PriceTarget: Codable, Equatable, Hashable {
+public struct PriceTarget: Mappable {
     public var lastUpdated: String
     public var symbol: String
     public var targetHigh: Double

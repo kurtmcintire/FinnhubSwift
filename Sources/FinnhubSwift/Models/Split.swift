@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Split: Codable, Equatable, Hashable {
+public struct Split: Mappable {
     public var symbol: String
     public var date: String
     public var fromFactor: Int

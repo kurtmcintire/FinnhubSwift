@@ -65,18 +65,18 @@ final class CompanyProfileTests: XCTestCase {
             XCTAssertNil(companyProfile)
         }
     }
-    
+
     func testThatEquatable() {
-        let fixture1 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1415993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
-        let fixture2 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1415993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
+        let fixture1 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1_415_993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
+        let fixture2 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1_415_993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
         XCTAssertEqual(fixture1, fixture2)
     }
-    
+
     func testThatHashable() {
-        let fixture1 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1415993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
-        let fixture2 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1415993, name: "Slack, Inc.", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "WORK", weburl: "https://www.slack.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
+        let fixture1 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1_415_993, name: "Apple Inc", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "AAPL", weburl: "https://www.apple.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
+        let fixture2 = CompanyProfile(country: "US", currency: "USD", exchange: "NASDAQ", ipo: "1980", marketCapitalization: 1_415_993, name: "Slack, Inc.", phone: "1409961010", shareOutstanding: 4375.47998, ticker: "WORK", weburl: "https://www.slack.com", logo: "https://static.finnhub.io/logo/87cb30d8-80df-11ea-8951-00000000092a.png", finnhubIndustry: "Technology")
         let fixtures: Set<CompanyProfile> = [fixture1, fixture2]
-        
+
         XCTAssertTrue(fixtures.contains(fixture1))
         XCTAssertTrue(fixtures.contains(fixture2))
     }

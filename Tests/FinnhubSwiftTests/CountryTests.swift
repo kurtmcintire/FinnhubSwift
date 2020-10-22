@@ -67,18 +67,18 @@ final class CountryTests: XCTestCase {
             XCTAssertNil(country)
         }
     }
-    
+
     func testThatEquatable() {
         let fixture1 = Country(codeTwo: "NR", codeThree: "NRU", codeNo: "520", country: "Nauru", currency: "Australian Dollars", currencyCode: "AUD")
         let fixture2 = Country(codeTwo: "NR", codeThree: "NRU", codeNo: "520", country: "Nauru", currency: "Australian Dollars", currencyCode: "AUD")
         XCTAssertEqual(fixture1, fixture2)
     }
-    
+
     func testThatHashable() {
         let fixture1 = Country(codeTwo: "NR", codeThree: "NRU", codeNo: "520", country: "Nauru", currency: "Australian Dollars", currencyCode: "AUD")
         let fixture2 = Country(codeTwo: "AR", codeThree: "ARU", codeNo: "510", country: "ANauru", currency: "Australian Dollars", currencyCode: "AUD")
         let fixtures: Set<Country> = [fixture1, fixture2]
-        
+
         XCTAssertTrue(fixtures.contains(fixture1))
         XCTAssertTrue(fixtures.contains(fixture2))
     }

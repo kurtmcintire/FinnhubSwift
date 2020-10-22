@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Recommendation: Codable, Equatable, Hashable {
+public struct Recommendation: Mappable {
     public var buy: Int
     public var hold: Int
     public var period: String

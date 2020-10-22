@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CompanySymbol: Codable, Equatable, Hashable {
+public struct CompanySymbol: Mappable {
     public var currency: String
     public var description: String
     public var displaySymbol: String

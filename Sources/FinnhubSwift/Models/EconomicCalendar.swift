@@ -1,6 +1,6 @@
 import Foundation
 
-public struct EconomicEvent: Codable, Equatable, Hashable {
+public struct EconomicEvent: Mappable {
     public var actual: Double?
     public var country: String
     public var estimate: Double?
@@ -11,7 +11,7 @@ public struct EconomicEvent: Codable, Equatable, Hashable {
     public var unit: String
 }
 
-public struct EconomicCalendar: Codable, Equatable, Hashable {
+public struct EconomicCalendar: Mappable {
     public var economicCalendar: [EconomicEvent]
 
     /*

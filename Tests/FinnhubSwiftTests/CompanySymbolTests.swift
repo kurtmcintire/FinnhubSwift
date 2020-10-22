@@ -95,18 +95,18 @@ final class CompanySymbolTests: XCTestCase {
             XCTAssertNil(companySymbol)
         }
     }
-    
+
     func testThatEquatable() {
         let fixture1 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
         let fixture2 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
         XCTAssertEqual(fixture1, fixture2)
     }
-    
+
     func testThatHashable() {
         let fixture1 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
         let fixture2 = CompanySymbol(currency: "USD", description: "AGILENT TECHNOLOGIES INC", displaySymbol: "A", symbol: "A", type: "EQS")
         let fixtures: Set<CompanySymbol> = [fixture1, fixture2]
-        
+
         XCTAssertTrue(fixtures.contains(fixture1))
         XCTAssertTrue(fixtures.contains(fixture2))
     }

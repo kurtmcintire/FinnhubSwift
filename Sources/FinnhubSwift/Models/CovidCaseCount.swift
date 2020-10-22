@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CovidCaseCount: Codable, Equatable, Hashable {
+public struct CovidCaseCount: Mappable {
     public var usState: String
     public var caseCount: Int
     public var death: Int

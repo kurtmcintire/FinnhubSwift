@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Country: Codable, Equatable, Hashable {
+public struct Country: Mappable {
     public var codeTwo: String
     public var codeThree: String
     public var codeNo: String

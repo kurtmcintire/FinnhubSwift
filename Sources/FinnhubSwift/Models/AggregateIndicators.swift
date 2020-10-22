@@ -1,6 +1,6 @@
 import Foundation
 
-public struct AggregateIndicators: Codable, Equatable, Hashable {
+public struct AggregateIndicators: Mappable {
     public var technicalAnalysis: TechnicalAnalysis
     public var trend: Trend
 
@@ -24,18 +24,18 @@ public struct AggregateIndicators: Codable, Equatable, Hashable {
      */
 }
 
-public struct TechnicalAnalysis: Codable, Equatable, Hashable {
+public struct TechnicalAnalysis: Mappable {
     public var count: TechnicalAnalysisCount
     public var signal: String
 }
 
-public struct TechnicalAnalysisCount: Codable, Equatable, Hashable {
+public struct TechnicalAnalysisCount: Mappable {
     public var buy: Int
     public var neutral: Int
     public var sell: Int
 }
 
-public struct Trend: Codable, Equatable, Hashable {
+public struct Trend: Mappable {
     public var adx: Double
     public var trending: Bool
 }

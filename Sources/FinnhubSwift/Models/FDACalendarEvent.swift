@@ -1,6 +1,6 @@
 import Foundation
 
-public struct FDACalendarEvent: Codable, Equatable, Hashable {
+public struct FDACalendarEvent: Mappable {
     public var fromDate: String
     public var toDate: String
     public var eventDescription: String
