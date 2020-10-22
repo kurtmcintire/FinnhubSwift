@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MarketNews: Codable, Equatable {
+public struct MarketNews: Codable, Equatable, Hashable {
     public var category: String
     public var datetime: Int
     public var headline: String

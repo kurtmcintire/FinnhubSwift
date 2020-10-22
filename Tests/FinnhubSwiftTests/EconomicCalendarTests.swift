@@ -114,4 +114,19 @@ final class EconomicCalendarTests: XCTestCase {
             XCTAssertNil(country)
         }
     }
+    
+    func testThatEquatable() {
+        let fixture1 = EconomicCalendar(economicCalendar: [EconomicEvent(actual: 0.5, country: "AU", estimate: 0.4, event: "Australia-NetExports", impact: "low", prev: -0.1, time: "2020-06-02", unit: "%")])
+        let fixture2 = EconomicCalendar(economicCalendar: [EconomicEvent(actual: 0.5, country: "AU", estimate: 0.4, event: "Australia-NetExports", impact: "low", prev: -0.1, time: "2020-06-02", unit: "%")])
+        XCTAssertEqual(fixture1, fixture2)
+    }
+    
+    func testThatHashable() {
+        let fixture1 = EconomicCalendar(economicCalendar: [EconomicEvent(actual: 0.5, country: "AU", estimate: 0.4, event: "Australia-NetExports", impact: "low", prev: -0.1, time: "2020-06-02", unit: "%")])
+        let fixture2 = EconomicCalendar(economicCalendar: [EconomicEvent(country: "US", event: "United States-EIA OIL STOCKS-EIA Weekly Gasoline O/P", impact: "low", time: "2020-06-02", unit: "Barrel/Day")])
+        let fixtures: Set<EconomicCalendar> = [fixture1, fixture2]
+        
+        XCTAssertTrue(fixtures.contains(fixture1))
+        XCTAssertTrue(fixtures.contains(fixture2))
+    }
 }

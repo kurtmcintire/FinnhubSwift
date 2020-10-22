@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CovidCaseCount: Codable, Equatable {
+public struct CovidCaseCount: Codable, Equatable, Hashable {
     public var usState: String
     public var caseCount: Int
     public var death: Int
@@ -11,13 +11,6 @@ public struct CovidCaseCount: Codable, Equatable {
         case caseCount = "case"
         case death
         case updated
-    }
-
-    public static func == (lhs: CovidCaseCount, rhs: CovidCaseCount) -> Bool {
-        return lhs.usState == rhs.usState &&
-            lhs.caseCount == rhs.caseCount &&
-            lhs.death == rhs.death &&
-            lhs.updated == rhs.updated
     }
 
     /*
