@@ -10,16 +10,16 @@ public enum LiveResponseType: String {
     case ping
 }
 
-public struct LiveTrades: Codable, LiveResponse, Equatable, Hashable {
+public struct LiveTrades: LiveResponse, Mappable {
     public var data: [Trade]
     public var type: String
 }
 
-public struct LiveNews: Codable, LiveResponse, Equatable, Hashable {
+public struct LiveNews: LiveResponse, Mappable {
     public var data: [MarketNews]
     public var type: String
 }
 
-public struct LivePing: Codable, LiveResponse, Equatable {
+public struct LivePing: LiveResponse, Mappable {
     public var type: String
 }

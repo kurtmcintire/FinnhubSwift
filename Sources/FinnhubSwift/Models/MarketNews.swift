@@ -8,7 +8,6 @@ public struct MarketNews: Mappable {
     public var image: String
     public var related: String
     public var source: String
-    public var summary: String
     public var url: String
 
     public static func == (lhs: MarketNews, rhs: MarketNews) -> Bool {
