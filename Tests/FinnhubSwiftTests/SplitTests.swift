@@ -59,16 +59,31 @@ final class SplitTests: XCTestCase {
         ]
 
         for datum in data {
-            testThatItCreatesCountry(data: datum)
+            testThatItCreates(data: datum)
         }
     }
 
-    func testThatItCreatesCountry(data: CodableTester) {
-        let country = try? JSONDecoder().decode([Split].self, from: data.payload)
+    func testThatItCreates(data: CodableTester) {
+        let result = try? JSONDecoder().decode([Split].self, from: data.payload)
         if data.expect {
-            XCTAssertNotNil(country)
+            XCTAssertNotNil(result)
         } else {
-            XCTAssertNil(country)
+            XCTAssertNil(result)
         }
+    }
+
+    func testThatEquatable() {
+        let fixture1 = Split(symbol: "TSLA", date: "2014-06-09", fromFactor: 1, toFactor: 7)
+        let fixture2 = Split(symbol: "TSLA", date: "2014-06-09", fromFactor: 1, toFactor: 7)
+        XCTAssertEqual(fixture1, fixture2)
+    }
+
+    func testThatHashable() {
+        let fixture1 = Split(symbol: "TSLA", date: "2014-06-09", fromFactor: 1, toFactor: 7)
+        let fixture2 = Split(symbol: "AAPL", date: "2014-06-09", fromFactor: 1, toFactor: 7)
+        let fixtures: Set<Split> = [fixture1, fixture2]
+
+        XCTAssertTrue(fixtures.contains(fixture1))
+        XCTAssertTrue(fixtures.contains(fixture2))
     }
 }

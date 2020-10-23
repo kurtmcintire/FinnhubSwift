@@ -109,4 +109,8 @@ import FinnhubSwift
 - [ ] Forex Rates
 
 ### Tests
-- [ ] 100% coverage for model serialization
+- [ ] Mocking web service events
+- [ ] Mocking socket events
+
+### Quality fo life
+- [ ] Serialize JSON date strings into Swift Dates
