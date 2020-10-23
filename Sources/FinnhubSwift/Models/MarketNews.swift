@@ -7,6 +7,8 @@ public struct MarketNews: Mappable {
     public var id: Int
     public var image: String
     public var related: String
+    // TODO: We want this parameter, but need special encoding
+//    public var summary: String
     public var source: String
     public var url: String
 
