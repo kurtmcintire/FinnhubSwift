@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupFirstScreen() {
         window = UIWindow()
 
-        let viewController = ViewController()
+        let viewController = SymbolsViewController()
         let navController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navController
         window?.makeKeyAndVisible()

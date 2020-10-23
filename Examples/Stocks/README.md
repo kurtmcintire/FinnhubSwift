@@ -1,3 +1,2 @@
 # Stocks
-
-A description of this package.
+A sample application using the FinnhubSwift wrapper.

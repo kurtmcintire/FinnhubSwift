@@ -20,7 +20,7 @@ public class FinnhubLiveClient {
     }()
 
     fileprivate lazy var socketService: SocketService = {
-        SocketService(url: SafeURL.path("wss://ws.finnhub.io?token=\(Constants.API_KEY)"))
+        SocketService(url: SafeURL.path("\(Constants.BASE_SOCKET_URL)?token=\(Constants.API_KEY)"))
     }()
 
     func parseLiveText(_ text: String) -> Result<FinnhubLiveSuccess, FinnhubLiveError> {
