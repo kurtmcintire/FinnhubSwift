@@ -21,7 +21,6 @@ class SymbolsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavItem()
-        configureBackground()
         configureHierarchy()
         configureDataSource()
         loadData()
@@ -32,10 +31,6 @@ class SymbolsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
     }
 
-    func configureBackground() {
-        view.backgroundColor = .white
-    }
-
     func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration
         <UICollectionViewListCell, CompanySymbol> { cell, _, symbol in
@@ -43,7 +38,6 @@ class SymbolsViewController: UIViewController {
             contentConfiguration.text = symbol.description
             contentConfiguration.secondaryText = symbol.symbol
             cell.contentConfiguration = contentConfiguration
-
             cell.accessories = [.disclosureIndicator()]
         }
 
@@ -55,11 +49,7 @@ class SymbolsViewController: UIViewController {
 
     func performQuery(with filter: String?) {
         let filteredSymbols = symbolsController.filteredSymbols(with: filter).sorted { $0.displaySymbol < $1.displaySymbol }
-
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CompanySymbol>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(filteredSymbols)
-        dataSource.apply(snapshot, animatingDifferences: true)
+        updateDataSource(filteredSymbols)
     }
 
     func createLayout() -> UICollectionViewLayout {
@@ -77,7 +67,7 @@ class SymbolsViewController: UIViewController {
 
         collectionView.backgroundColor = .systemGroupedBackground
         collectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         view.addSubview(collectionView)
@@ -126,7 +116,7 @@ class SymbolsViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    @objc private func refreshWeatherData(_: Any) {
+    @objc private func refreshData(_: Any) {
         loadData()
     }
 }
