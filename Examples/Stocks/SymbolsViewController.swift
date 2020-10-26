@@ -71,36 +71,30 @@ class SymbolsViewController: UIViewController {
         view.backgroundColor = .systemBackground
         let layout = createLayout()
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-
-        collectionView.backgroundColor = .systemGroupedBackground
-        collectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-        view.addSubview(collectionView)
-        view.addSubview(searchBar)
-
-        let views = ["cv": collectionView, "searchBar": searchBar]
-        var constraints = [NSLayoutConstraint]()
-        constraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[cv]|", options: [], metrics: nil, views: views
-        ))
-        constraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|[searchBar]|", options: [], metrics: nil, views: views
-        ))
-        constraints.append(contentsOf: NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[searchBar]-20-[cv]|", options: [], metrics: nil, views: views
-        ))
-        constraints.append(searchBar.topAnchor.constraint(
-            equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1.0
-        ))
-        NSLayoutConstraint.activate(constraints)
         mainCollectionView = collectionView
 
+        mainCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
+
+        mainCollectionView.backgroundColor = .systemGroupedBackground
+        mainCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        mainCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+
+        view.addSubview(mainCollectionView)
+        view.addSubview(searchBar)
+
+        searchBar.pinTopToSafeArea(to: view)
+        searchBar.pinLeadingToSafeArea(to: view)
+        searchBar.pinTrailingToSafeArea(to: view)
+
+        mainCollectionView.pinBottomToSafeArea(to: view)
+        mainCollectionView.pinLeadingToSafeArea(to: view)
+        mainCollectionView.pinTrailingToSafeArea(to: view)
+
+        NSLayoutConstraint(item: searchBar, attribute: .bottom, relatedBy: .equal, toItem: mainCollectionView, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
     }
 
     func loadData() {
@@ -110,6 +104,7 @@ class SymbolsViewController: UIViewController {
                 self?.updateDataSource(newSymbols)
             }
         }
+
         loadingSubscriber = symbolsController.$loading.sink(receiveValue: { [weak self] loading in
             if loading == false {
                 DispatchQueue.main.async {
@@ -126,7 +121,7 @@ class SymbolsViewController: UIViewController {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
 
-    @objc private func refreshWeatherData(_: Any) {
+    @objc private func refreshData(_: Any) {
         loadData()
     }
 }
