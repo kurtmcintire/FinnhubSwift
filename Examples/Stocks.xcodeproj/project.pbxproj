@@ -15,6 +15,7 @@
 		BF27093325431E1600775E45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF27093025431E1600775E45 /* AppDelegate.swift */; };
 		BF27093425431E1600775E45 /* CompanySymbolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF27093125431E1600775E45 /* CompanySymbolsController.swift */; };
 		BF27093C254342B400775E45 /* StocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF27093B254342B400775E45 /* StocksTests.swift */; };
+		BF270947254653D800775E45 /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF270946254653D700775E45 /* UIView+Autolayout.swift */; };
 		BF64A495253624EF008CFD54 /* FinnhubSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF64A494253624EF008CFD54 /* FinnhubSwift */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		BF270939254342B400775E45 /* StocksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StocksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF27093B254342B400775E45 /* StocksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksTests.swift; sourceTree = "<group>"; };
 		BF27093D254342B400775E45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF270946254653D700775E45 /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Autolayout.swift"; path = "Stocks/Assets.xcassets/UIView+Autolayout.swift"; sourceTree = "<group>"; };
 		BF64A4832536213F008CFD54 /* Stocks.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Stocks.xcodeproj; sourceTree = "<group>"; };
 		BFDCC5B3252F9A6800278DA7 /* Stocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 				BF27093025431E1600775E45 /* AppDelegate.swift */,
 				BF27093125431E1600775E45 /* CompanySymbolsController.swift */,
 				BF27092F25431E1600775E45 /* SymbolsViewController.swift */,
+				BF270946254653D700775E45 /* UIView+Autolayout.swift */,
 				BF22B5E22536397A00DC65A7 /* README.md */,
 			);
 			name = Stocks;
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF27093325431E1600775E45 /* AppDelegate.swift in Sources */,
+				BF270947254653D800775E45 /* UIView+Autolayout.swift in Sources */,
 				BF27093425431E1600775E45 /* CompanySymbolsController.swift in Sources */,
 				BF27093225431E1600775E45 /* SymbolsViewController.swift in Sources */,
 			);
