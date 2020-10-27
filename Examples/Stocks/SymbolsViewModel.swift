@@ -1,5 +1,5 @@
 import FinnhubSwift
-import UIKit
+import Foundation
 
 extension CompanySymbol {
     func contains(_ filter: String?) -> Bool {
