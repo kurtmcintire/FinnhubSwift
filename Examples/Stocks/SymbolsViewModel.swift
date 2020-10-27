@@ -1,20 +1,29 @@
 import FinnhubSwift
 import Foundation
 
-extension CompanySymbol {
+struct SymbolViewModel: Hashable, Equatable {
+    private let symbol: CompanySymbol
+
+    var text: String { return symbol.description }
+    var secondaryText: String { return symbol.symbol }
+
+    init(symbol: CompanySymbol) {
+        self.symbol = symbol
+    }
+
     func contains(_ filter: String?) -> Bool {
         guard let filterText = filter else { return true }
         if filterText.isEmpty { return true }
         let lowercasedFilter = filterText.lowercased()
-        return symbol.lowercased().contains(lowercasedFilter) || description.lowercased().contains(lowercasedFilter)
+        return text.lowercased().contains(lowercasedFilter) || secondaryText.lowercased().contains(lowercasedFilter)
     }
 }
 
 class SymbolsViewModel: ObservableObject {
-    @Published var symbols: [CompanySymbol] = []
+    @Published var symbols: [SymbolViewModel] = []
     @Published var loading: Bool = false
 
-    func filteredSymbols(with filter: String? = nil, limit: Int? = nil) -> [CompanySymbol] {
+    func filteredSymbols(with filter: String? = nil, limit: Int? = nil) -> [SymbolViewModel] {
         let filtered = symbols.filter { $0.contains(filter) }
         if let limit = limit {
             return Array(filtered.prefix(through: limit))
@@ -29,7 +38,9 @@ class SymbolsViewModel: ObservableObject {
             self?.loading = false
             switch result {
             case let .success(data):
-                self?.symbols = data
+                self?.symbols = data.map { (companySymbol) -> SymbolViewModel in
+                    SymbolViewModel(symbol: companySymbol)
+                }
             case .failure(.invalidData):
                 self?.symbols = []
             case .failure(.networkFailure(_)):

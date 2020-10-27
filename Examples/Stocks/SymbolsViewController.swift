@@ -1,5 +1,4 @@
 import Combine
-import FinnhubSwift
 import UIKit
 
 class SymbolsViewController: UIViewController {
@@ -25,7 +24,7 @@ class SymbolsViewController: UIViewController {
     }
 
     func configureNavItem() {
-        navigationItem.title = "Stocks, NASDAQ & NYSE"
+        navigationItem.title = "Stocks"
         navigationItem.largeTitleDisplayMode = .always
     }
 
@@ -73,10 +72,8 @@ class SymbolsViewController: UIViewController {
         }
 
         loadingSubscriber = symbolsViewModel.$loading.sink(receiveValue: { [weak self] loading in
-            if loading == false {
-                DispatchQueue.main.async {
-                    self?.refreshControl.endRefreshing()
-                }
+            DispatchQueue.main.async {
+                loading ? self?.refreshControl.beginRefreshing() : self?.refreshControl.endRefreshing()
             }
         })
     }
@@ -88,7 +85,7 @@ class SymbolsViewController: UIViewController {
 
 extension SymbolsViewController: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
-        let filteredSymbols = symbolsViewModel.filteredSymbols(with: searchText).sorted { $0.displaySymbol < $1.displaySymbol }
+        let filteredSymbols = symbolsViewModel.filteredSymbols(with: searchText)
         dataSource.update(filteredSymbols)
     }
 }

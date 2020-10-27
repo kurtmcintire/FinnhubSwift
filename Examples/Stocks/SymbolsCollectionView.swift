@@ -6,7 +6,6 @@ class SymbolsCollectionView: UICollectionView {
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
 
         super.init(frame: frame, collectionViewLayout: layout)
-
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .systemGroupedBackground
     }

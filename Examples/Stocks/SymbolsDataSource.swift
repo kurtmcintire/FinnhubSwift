@@ -1,16 +1,15 @@
-import FinnhubSwift
 import UIKit
 
 enum Section: CaseIterable {
     case main
 }
 
-class SymbolsDataSource: UICollectionViewDiffableDataSource<Section, CompanySymbol> {
+class SymbolsDataSource: UICollectionViewDiffableDataSource<Section, SymbolViewModel> {
     init(ownedCollectionView: UICollectionView) {
-        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, CompanySymbol> { cell, _, symbol in
+        let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, SymbolViewModel> { cell, _, symbol in
             var contentConfiguration = UIListContentConfiguration.cell()
-            contentConfiguration.text = symbol.description
-            contentConfiguration.secondaryText = symbol.symbol
+            contentConfiguration.text = symbol.text
+            contentConfiguration.secondaryText = symbol.secondaryText
             cell.contentConfiguration = contentConfiguration
             cell.accessories = [.disclosureIndicator()]
         }
@@ -20,8 +19,8 @@ class SymbolsDataSource: UICollectionViewDiffableDataSource<Section, CompanySymb
         }
     }
 
-    func update(_ newSymbols: [CompanySymbol]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CompanySymbol>()
+    func update(_ newSymbols: [SymbolViewModel]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, SymbolViewModel>()
         snapshot.appendSections([.main])
         snapshot.appendItems(newSymbols)
         apply(snapshot, animatingDifferences: true)
