@@ -10,7 +10,7 @@ extension CompanySymbol {
     }
 }
 
-class CompanySymbolsController: ObservableObject {
+class SymbolsViewModel: ObservableObject {
     @Published var symbols: [CompanySymbol] = []
     @Published var loading: Bool = false
 

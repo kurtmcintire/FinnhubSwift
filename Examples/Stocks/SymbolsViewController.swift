@@ -3,19 +3,15 @@ import FinnhubSwift
 import UIKit
 
 class SymbolsViewController: UIViewController {
-    enum Section: CaseIterable {
-        case main
-    }
-
-    let symbolsController = CompanySymbolsController()
+    let symbolsViewModel = SymbolsViewModel()
     var loadingSubscriber: AnyCancellable?
     var symbolsSubscriber: AnyCancellable?
 
     let searchBar = UISearchBar(frame: .zero)
     let refreshControl = UIRefreshControl(frame: .zero)
 
-    var mainCollectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, CompanySymbol>!
+    var mainCollectionView: SymbolsCollectionView!
+    var dataSource: SymbolsDataSource!
     var nameFilter: String?
 
     override func viewDidLoad() {
@@ -25,6 +21,7 @@ class SymbolsViewController: UIViewController {
         configureHierarchy()
         configureDataSource()
         loadData()
+        bindData()
     }
 
     func configureNavItem() {
@@ -37,48 +34,15 @@ class SymbolsViewController: UIViewController {
     }
 
     func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration
-        <UICollectionViewListCell, CompanySymbol> { cell, _, symbol in
-            var contentConfiguration = UIListContentConfiguration.cell()
-            contentConfiguration.text = symbol.description
-            contentConfiguration.secondaryText = symbol.symbol
-            cell.contentConfiguration = contentConfiguration
-
-            cell.accessories = [.disclosureIndicator()]
-        }
-
-        dataSource = UICollectionViewDiffableDataSource<Section, CompanySymbol>(collectionView: mainCollectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: CompanySymbol) -> UICollectionViewCell? in
-            collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        }
-    }
-
-    func performQuery(with filter: String?) {
-        let filteredSymbols = symbolsController.filteredSymbols(with: filter).sorted { $0.displaySymbol < $1.displaySymbol }
-
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CompanySymbol>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(filteredSymbols)
-        dataSource.apply(snapshot, animatingDifferences: true)
-    }
-
-    func createLayout() -> UICollectionViewLayout {
-        let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        return UICollectionViewCompositionalLayout.list(using: configuration)
+        dataSource = SymbolsDataSource(ownedCollectionView: mainCollectionView)
     }
 
     func configureHierarchy() {
         view.backgroundColor = .systemBackground
-        let layout = createLayout()
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-        mainCollectionView = collectionView
+        mainCollectionView = SymbolsCollectionView(frame: view.bounds)
 
-        mainCollectionView.translatesAutoresizingMaskIntoConstraints = false
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.delegate = self
-
-        mainCollectionView.backgroundColor = .systemGroupedBackground
-        mainCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 
         mainCollectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
@@ -98,27 +62,23 @@ class SymbolsViewController: UIViewController {
     }
 
     func loadData() {
-        symbolsController.fetchSymbols()
-        symbolsSubscriber = symbolsController.$symbols.sink { [weak self] newSymbols in
+        symbolsViewModel.fetchSymbols()
+    }
+
+    func bindData() {
+        symbolsSubscriber = symbolsViewModel.$symbols.sink { [weak self] newSymbols in
             DispatchQueue.main.async {
-                self?.updateDataSource(newSymbols)
+                self?.dataSource.update(newSymbols)
             }
         }
 
-        loadingSubscriber = symbolsController.$loading.sink(receiveValue: { [weak self] loading in
+        loadingSubscriber = symbolsViewModel.$loading.sink(receiveValue: { [weak self] loading in
             if loading == false {
                 DispatchQueue.main.async {
                     self?.refreshControl.endRefreshing()
                 }
             }
         })
-    }
-
-    func updateDataSource(_ newSymbols: [CompanySymbol]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CompanySymbol>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(newSymbols)
-        dataSource.apply(snapshot, animatingDifferences: true)
     }
 
     @objc private func refreshData(_: Any) {
@@ -128,6 +88,7 @@ class SymbolsViewController: UIViewController {
 
 extension SymbolsViewController: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
-        performQuery(with: searchText)
+        let filteredSymbols = symbolsViewModel.filteredSymbols(with: searchText).sorted { $0.displaySymbol < $1.displaySymbol }
+        dataSource.update(filteredSymbols)
     }
 }
