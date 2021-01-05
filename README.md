@@ -236,6 +236,17 @@ import FinnhubSwift
          print(error)
      }
  }
+ 
+ FinnhubClient.cryptoSymbols(exchange: .binance) { result in
+     switch result {
+     case let .success(data):
+         print(data)
+     case .failure(.invalidData):
+         print("Invalid data")
+     case let .failure(.networkFailure(error)):
+         print(error)
+     }
+ }
 ```
 
 ## Available real-time data
@@ -277,8 +288,6 @@ import FinnhubSwift
 ### Finnhub.io API endpoints
 - [ ] Technical Indicators
 - [ ] Pattern Recognition
-- [ ] Crypto Exchanges
-- [ ] Crypto Symbols
 - [ ] Crypto Candles
 - [ ] Indices Constituents
 - [ ] ETFs Industry Exposure

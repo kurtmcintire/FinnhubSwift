@@ -38,7 +38,7 @@ public enum FinnhubClient {
         }
     }
 
-    // MARK: Symbols
+    // MARK: Company Symbols
 
     public static func symbols(exchange: Exchange, completion: @escaping (Result<[CompanySymbol], FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/stock/symbol?exchange=\(exchange.rawValue)")
@@ -173,6 +173,16 @@ public enum FinnhubClient {
         let url = SafeURL.path("\(Constants.BASE_URL)/scan/technical-indicator?symbol=\(symbol)&resolution=\(resolution.rawValue)")
         let resource = Resource<AggregateIndicators>(get: url, headers: headers())
         URLSession.shared.load(resource) { (result: Result<AggregateIndicators?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
+    // MARK: Crypto Symbols
+
+    public static func cryptoSymbols(_ exchange: CryptoExchange, completion: @escaping (Result<[CryptoSymbol], FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/crypto/symbol?exchange=\(exchange.rawValue)")
+        let resource = Resource<[CryptoSymbol]>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<[CryptoSymbol]?, Error>) in
             completion(FinnhubClient.parseResponse(result: result))
         }
     }
