@@ -94,6 +94,18 @@ import FinnhubSwift
 
 ## Available endpoints
 ```
+FinnhubClient.symbol(query: "apple") { result in
+    switch result {
+    case let .success(data):
+        print(data)
+    case .failure(.invalidData):
+        print("Invalid data")
+    case let .failure(.networkFailure(error)):
+        print(error)
+    }
+}
+
+
  FinnhubClient.symbols(exchange: .unitedStates) { result in
      switch result {
      case let .success(data):
