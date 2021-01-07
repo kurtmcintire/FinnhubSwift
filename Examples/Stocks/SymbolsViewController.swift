@@ -1,4 +1,5 @@
 import Combine
+import FinnhubSwift
 import UIKit
 
 class SymbolsViewController: UIViewController {
@@ -6,10 +7,22 @@ class SymbolsViewController: UIViewController {
     var loadingSubscriber: AnyCancellable?
     var symbolsSubscriber: AnyCancellable?
 
-    let searchBar = UISearchBar(frame: .zero)
+    lazy var searchBar: UISearchBar = {
+        let search = UISearchBar(frame: .zero)
+        search.translatesAutoresizingMaskIntoConstraints = false
+        search.delegate = self
+        return search
+    }()
+
     let refreshControl = UIRefreshControl(frame: .zero)
 
-    var mainCollectionView: SymbolsCollectionView!
+    lazy var mainCollectionView: SymbolsCollectionView = {
+        let collectionView = SymbolsCollectionView(frame: view.bounds)
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        return collectionView
+    }()
+
     var dataSource: SymbolsDataSource!
     var nameFilter: String?
 
@@ -19,17 +32,15 @@ class SymbolsViewController: UIViewController {
         configureBackground()
         configureHierarchy()
         configureDataSource()
-        loadData()
         bindData()
     }
 
     func configureNavItem() {
         navigationItem.title = "Stocks"
-        navigationItem.largeTitleDisplayMode = .always
     }
 
     func configureBackground() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
 
     func configureDataSource() {
@@ -37,15 +48,6 @@ class SymbolsViewController: UIViewController {
     }
 
     func configureHierarchy() {
-        view.backgroundColor = .systemBackground
-        mainCollectionView = SymbolsCollectionView(frame: view.bounds)
-
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.delegate = self
-
-        mainCollectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
-
         view.addSubview(mainCollectionView)
         view.addSubview(searchBar)
 
@@ -58,10 +60,6 @@ class SymbolsViewController: UIViewController {
         mainCollectionView.pinTrailingToSafeArea(to: view)
 
         NSLayoutConstraint(item: searchBar, attribute: .bottom, relatedBy: .equal, toItem: mainCollectionView, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
-    }
-
-    func loadData() {
-        symbolsViewModel.fetchSymbols()
     }
 
     func bindData() {
@@ -79,13 +77,14 @@ class SymbolsViewController: UIViewController {
     }
 
     @objc private func refreshData(_: Any) {
-        loadData()
+        if let text = searchBar.text {
+            symbolsViewModel.fetchSymbols(searchQuery: text)
+        }
     }
 }
 
 extension SymbolsViewController: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
-        let filteredSymbols = symbolsViewModel.filteredSymbols(with: searchText)
-        dataSource.update(filteredSymbols)
+        symbolsViewModel.fetchSymbols(searchQuery: searchText)
     }
 }

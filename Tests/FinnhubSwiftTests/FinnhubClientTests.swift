@@ -3,7 +3,7 @@ import XCTest
 
 final class FinnhubClientTests: XCTestCase {
     func testThatItParsesResponsesSuccessful() {
-        let companySymbol = CompanySymbol(currency: "USD", description: "AGILENT TECHNOLOGIES INC", displaySymbol: "A", symbol: "A", type: "EQS")
+        let companySymbol = CompanySymbol(description: "USD", displaySymbol: "AGILENT TECHNOLOGIES INC", symbol: "A", type: "A", currency: "EQS")
         let responseResult: Result<[CompanySymbol]?, Error> = .success([companySymbol])
         let parsed = FinnhubClient.parseResponse(result: responseResult)
 

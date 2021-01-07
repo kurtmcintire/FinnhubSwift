@@ -97,14 +97,14 @@ final class CompanySymbolTests: XCTestCase {
     }
 
     func testThatEquatable() {
-        let fixture1 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
-        let fixture2 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
+        let fixture1 = CompanySymbol(description: "USD", displaySymbol: "PERTH MINT PHYSICAL GOLD ETF", symbol: "AAAU", type: "AAAU", currency: "ETF")
+        let fixture2 = CompanySymbol(description: "USD", displaySymbol: "PERTH MINT PHYSICAL GOLD ETF", symbol: "AAAU", type: "AAAU", currency: "ETF")
         XCTAssertEqual(fixture1, fixture2)
     }
 
     func testThatHashable() {
-        let fixture1 = CompanySymbol(currency: "USD", description: "PERTH MINT PHYSICAL GOLD ETF", displaySymbol: "AAAU", symbol: "AAAU", type: "ETF")
-        let fixture2 = CompanySymbol(currency: "USD", description: "AGILENT TECHNOLOGIES INC", displaySymbol: "A", symbol: "A", type: "EQS")
+        let fixture1 = CompanySymbol(description: "USD", displaySymbol: "PERTH MINT PHYSICAL GOLD ETF", symbol: "AAAU", type: "AAAU", currency: "ETF")
+        let fixture2 = CompanySymbol(description: "USD", displaySymbol: "AGILENT TECHNOLOGIES INC", symbol: "A", type: "A", currency: "EQS")
         let fixtures: Set<CompanySymbol> = [fixture1, fixture2]
 
         XCTAssertTrue(fixtures.contains(fixture1))

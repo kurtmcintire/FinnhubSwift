@@ -32,9 +32,10 @@ class SymbolsViewModel: ObservableObject {
         }
     }
 
-    func fetchSymbols() {
+    func fetchSymbols(searchQuery: String) {
         loading = true
-        FinnhubClient.symbols(exchange: .unitedStates) { [weak self] result in
+
+        FinnhubClient.symbol(query: searchQuery) { [weak self] result in
             self?.loading = false
             switch result {
             case let .success(data):
