@@ -48,10 +48,10 @@ public enum FinnhubClient {
         }
     }
 
-    public static func symbol(query: String, completion: @escaping (Result<[CompanySymbol], FinnhubWebError>) -> Void) {
+    public static func symbol(query: String, completion: @escaping (Result<CompanySymbolQueryResult, FinnhubWebError>) -> Void) {
         let url = SafeURL.path("\(Constants.BASE_URL)/search?q=\(query)")
-        let resource = Resource<[CompanySymbol]>(get: url, headers: headers())
-        URLSession.shared.load(resource) { (result: Result<[CompanySymbol]?, Error>) in
+        let resource = Resource<CompanySymbolQueryResult>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<CompanySymbolQueryResult?, Error>) in
             completion(FinnhubClient.parseResponse(result: result))
         }
     }
