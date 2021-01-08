@@ -30,7 +30,7 @@ final class FinnhubLiveClientTests: XCTestCase {
             return
         }
 
-        guard case let .trades(trades as LiveTrades) = success else {
+        guard case let .trades(trades) = success else {
             XCTFail("Expected .trades")
             return
         }

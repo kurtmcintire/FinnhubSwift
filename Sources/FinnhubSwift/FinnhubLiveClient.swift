@@ -7,7 +7,7 @@ public enum FinnhubLiveError: Error {
 }
 
 public enum FinnhubLiveSuccess {
-    case trades(LiveResponse)
+    case trades(LiveTrades)
     case news(LiveNews)
     case ping(LivePing)
     case empty
