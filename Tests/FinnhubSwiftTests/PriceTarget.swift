@@ -36,7 +36,7 @@ final class PriceTargetTests: XCTestCase {
               "targetMedian": 417.5
             }
         """.utf8)
-        let doubleTarget = Data("""
+        let FloatTarget = Data("""
             {
                 "lastUpdated":"2020-10-14 00:00:00",
                 "symbol":"AAPL",
@@ -49,7 +49,7 @@ final class PriceTargetTests: XCTestCase {
 
         let data: [CodableTester] = [
             CodableTester(payload: intTarget, expect: true),
-            CodableTester(payload: doubleTarget, expect: true),
+            CodableTester(payload: FloatTarget, expect: true),
             CodableTester(payload: partial, expect: false),
             CodableTester(payload: wrong, expect: false),
             CodableTester(payload: notJsonString, expect: false),

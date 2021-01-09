@@ -1,12 +1,12 @@
 import Foundation
 
 public struct EconomicEvent: Mappable {
-    public var actual: Double?
+    public var actual: Float?
     public var country: String
-    public var estimate: Double?
+    public var estimate: Float?
     public var event: String
     public var impact: String
-    public var prev: Double?
+    public var prev: Float?
     public var time: String
     public var unit: String
 }

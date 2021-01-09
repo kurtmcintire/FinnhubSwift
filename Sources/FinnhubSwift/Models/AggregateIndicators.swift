@@ -36,6 +36,6 @@ public struct TechnicalAnalysisCount: Mappable {
 }
 
 public struct Trend: Mappable {
-    public var adx: Double
+    public var adx: Float
     public var trending: Bool
 }

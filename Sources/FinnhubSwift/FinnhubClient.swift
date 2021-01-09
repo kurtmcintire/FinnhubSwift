@@ -122,6 +122,16 @@ public enum FinnhubClient {
         }
     }
 
+    // MARK: Quote
+
+    public static func quote(symbol: String, completion: @escaping (Result<Quote, FinnhubWebError>) -> Void) {
+        let url = SafeURL.path("\(Constants.BASE_URL)/quote?symbol=\(symbol)")
+        let resource = Resource<Quote>(get: url, headers: headers())
+        URLSession.shared.load(resource) { (result: Result<Quote?, Error>) in
+            completion(FinnhubClient.parseResponse(result: result))
+        }
+    }
+
     // MARK: Split
 
     // "to" and "from" parameters should be formatted as YYYY-MM-DD

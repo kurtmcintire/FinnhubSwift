@@ -193,6 +193,17 @@ FinnhubClient.symbol(query: "apple") { result in
          print(error)
      }
  }
+ 
+ FinnhubClient.quote(symbol: "AAPL") { result in
+     switch result {
+     case let .success(data):
+         print(data)
+     case .failure(.invalidData):
+         print("Invalid data")
+     case let .failure(.networkFailure(error)):
+         print(error)
+     }
+ }
 
  FinnhubClient.country { result in
      switch result {
