@@ -16,4 +16,11 @@ extension UIView {
     func pinTrailingToSafeArea(to: UIView) {
         trailingAnchor.constraint(equalTo: to.safeAreaLayoutGuide.trailingAnchor).isActive = true
     }
+
+    func pinToSafeArea(to: UIView) {
+        pinTopToSafeArea(to: to)
+        pinBottomToSafeArea(to: to)
+        pinLeadingToSafeArea(to: to)
+        pinTrailingToSafeArea(to: to)
+    }
 }

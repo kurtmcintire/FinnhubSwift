@@ -3,9 +3,10 @@ import FinnhubSwift
 import UIKit
 
 class SymbolsViewController: UIViewController {
-    let symbolsViewModel = SymbolsViewModel()
+    let viewModel = SymbolsViewModel()
     var loadingSubscriber: AnyCancellable?
     var symbolsSubscriber: AnyCancellable?
+    var dataSource: SymbolsDataSource!
 
     lazy var searchBar: UISearchBar = {
         let search = UISearchBar(frame: .zero)
@@ -20,11 +21,9 @@ class SymbolsViewController: UIViewController {
         let collectionView = SymbolsCollectionView(frame: view.bounds)
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        collectionView.delegate = self
         return collectionView
     }()
-
-    var dataSource: SymbolsDataSource!
-    var nameFilter: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,21 +54,23 @@ class SymbolsViewController: UIViewController {
         searchBar.pinLeadingToSafeArea(to: view)
         searchBar.pinTrailingToSafeArea(to: view)
 
+        NSLayoutConstraint.activate([
+            searchBar.bottomAnchor.constraint(equalTo: mainCollectionView.topAnchor, constant: 0),
+        ])
+
         mainCollectionView.pinBottomToSafeArea(to: view)
         mainCollectionView.pinLeadingToSafeArea(to: view)
         mainCollectionView.pinTrailingToSafeArea(to: view)
-
-        NSLayoutConstraint(item: searchBar, attribute: .bottom, relatedBy: .equal, toItem: mainCollectionView, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
     }
 
     func bindData() {
-        symbolsSubscriber = symbolsViewModel.$symbols.sink { [weak self] newSymbols in
+        symbolsSubscriber = viewModel.$symbols.sink { [weak self] newSymbols in
             DispatchQueue.main.async {
                 self?.dataSource.update(newSymbols)
             }
         }
 
-        loadingSubscriber = symbolsViewModel.$loading.sink(receiveValue: { [weak self] loading in
+        loadingSubscriber = viewModel.$loading.sink(receiveValue: { [weak self] loading in
             DispatchQueue.main.async {
                 loading ? self?.refreshControl.beginRefreshing() : self?.refreshControl.endRefreshing()
             }
@@ -78,13 +79,22 @@ class SymbolsViewController: UIViewController {
 
     @objc private func refreshData(_: Any) {
         if let text = searchBar.text {
-            symbolsViewModel.fetchSymbols(searchQuery: text)
+            viewModel.fetchSymbols(searchQuery: text)
         }
     }
 }
 
 extension SymbolsViewController: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
-        symbolsViewModel.fetchSymbols(searchQuery: searchText)
+        viewModel.fetchSymbols(searchQuery: searchText)
+    }
+}
+
+extension SymbolsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let symbol = viewModel.symbol(at: indexPath.row)
+        let detailViewController = SymbolDetailsViewController(symbol: symbol)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
