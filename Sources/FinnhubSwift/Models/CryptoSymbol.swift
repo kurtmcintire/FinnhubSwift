@@ -1,9 +1,9 @@
 import Foundation
 
 public struct CryptoSymbol: Mappable {
-    var description: String
-    var displaySymbol: String
-    var symbol: String
+    public var description: String
+    public var displaySymbol: String
+    public var symbol: String
 
     /*
 

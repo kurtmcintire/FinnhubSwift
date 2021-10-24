@@ -14,7 +14,7 @@ class SymbolsDataSource: UICollectionViewDiffableDataSource<Section, SymbolViewM
             cell.accessories = [.disclosureIndicator()]
         }
 
-        super.init(collectionView: ownedCollectionView) { (collectionView, indexPath, identifier) -> UICollectionViewCell? in
+        super.init(collectionView: ownedCollectionView) { collectionView, indexPath, identifier -> UICollectionViewCell? in
             collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
         }
     }

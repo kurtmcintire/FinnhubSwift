@@ -35,7 +35,7 @@ class SymbolsViewModel: ObservableObject {
                 switch result {
                 case let .success(data):
                     self?.companySymbols = data.result
-                    self?.symbols = data.result.map { (companySymbol) -> SymbolViewModel in
+                    self?.symbols = data.result.map { companySymbol -> SymbolViewModel in
                         SymbolViewModel(symbol: companySymbol)
                     }
                 case .failure(.invalidData):
